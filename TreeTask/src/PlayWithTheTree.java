@@ -76,8 +76,7 @@ public class PlayWithTheTree<T> {
 	public void findClosestCommonPredecessor(GenericTreeNode<T> A1, GenericTreeNode<T> A2) {
 		int depth1 = A1.getDepth();
 		int depth2 = A2.getDepth();
-		
-		//check if the two nodes have same depth with equalDepths();
+
 		if (depth1 == depth2) {
 
 			equalDepths(A1, A2);
@@ -85,7 +84,7 @@ public class PlayWithTheTree<T> {
 		} else if (depth2 > depth1) {
 
 			while (!(depth2 == depth1)) {
-				//while they have different depth ,the method takes the higher level's depth and decreases it
+			
 				A2 = A2.getParent();
 				depth2--;
 			}
@@ -122,7 +121,7 @@ public class PlayWithTheTree<T> {
 
 			if (A1.hasParent() && A2.hasChildren()) {
 				while (A1.getParent() != A2) {
-//gets the path between them
+
 					A1 = A1.getParent();
 					a.push(A1);
 				}
@@ -141,28 +140,14 @@ public class PlayWithTheTree<T> {
 	}
 	
 	
-	/*void display(GenericTreeNode<T> t) {
-	    if(t==null)
-	      return;
-
-	    System.out.print(t.data + " ");
-
-	    for(GenericTreeNode<T> n : t.getChildren()) 
-	          display(n) ;            
-	 }
-	*/
 	
 	void showTree(GenericTreeNode<T> node, int indent)
 	{
-	//Determine number of tabs to use - to properly indent tree
 	int tabCount = ( indent < tabs.length() ? indent :
 	tabs.length() );
 
 
 	System.out.println(tabs.substring(0, tabCount) + node.getData()+ " (has " + node.getNumberOfChildren() + " children)" );
-
-	// if node has children; recursively call the
-	//method to print out child nodes.
 	List<GenericTreeNode<T>> children = node.getChildren();
 	int childCount = ( children != null ? children.size() : 0 );
 	for ( int i = 0; i < childCount; ++i )
