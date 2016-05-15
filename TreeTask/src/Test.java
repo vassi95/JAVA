@@ -110,10 +110,9 @@ public static void main(String args[]){
 	System.out.println();
 	
 		p.findSuccessorsAndPredecessors( childJ, childA);
-		//p.display(tree.getRoot());
 		System.out.println();
 p.showTree(tree.getRoot(), 0);
 
-//p.printPath(tree, childF);
+p.printPath(tree, childF);
 }
 }
